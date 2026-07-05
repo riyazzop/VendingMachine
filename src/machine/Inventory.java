@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Inventory {
-    private Map<Integer,ItemShelf> itemsInventory;
+    private final Map<Integer,ItemShelf> itemsInventory;
     public Inventory(){
         itemsInventory = new HashMap<>();
     }
@@ -24,5 +24,10 @@ public class Inventory {
         }
         throw new ItemNotAvailable("The item is already sold out");
     }
-
+    public boolean canPurchaseItem(int shelfCode,double amount){
+        return  itemsInventory.get(shelfCode).getItemPrice() <= amount;
+    }
+    public  boolean isShelfEmpty(int shelfCode){
+        return  itemsInventory.get(shelfCode).getIsSoldOut();
+    }
 }

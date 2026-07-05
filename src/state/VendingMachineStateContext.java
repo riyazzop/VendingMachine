@@ -8,9 +8,6 @@ public class VendingMachineStateContext {
     public  void setState(VendingMachineState newState){
         currentState = newState;
     }
-    public  void next(){
-        currentState.next(this);
-    }
     public  String getState(){
          return currentState.getState();
     }

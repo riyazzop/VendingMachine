@@ -5,12 +5,11 @@ import product.Item;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import  java.util.Map;
+
 public class ItemShelf {
     private int shelfCode;
     private List<Item> items;
     private boolean isSoldOut;
-
     public ItemShelf(int shelfCode) {
         this.shelfCode = shelfCode;
         this.items = new ArrayList<>();
@@ -23,7 +22,9 @@ public class ItemShelf {
     public  List<Item> getItems(){
         return Collections.unmodifiableList(items);
     }
-
+    public int getItemPrice(){
+        return items.getFirst().getPrice();
+    }
     public boolean getIsSoldOut() {
         return isSoldOut;
     }
